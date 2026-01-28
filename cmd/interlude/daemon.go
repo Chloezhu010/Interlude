@@ -17,7 +17,7 @@ var (
 	statusFile = home + "/.interlude/status" // status file path: "active" or "idle" written by cc hooks
 	startTimeFile = home + "/.interlude/start_time" // start time file path: Unix timestamp written by cc hooks
 	pidFile = home + "/.interlude/interlude.pid" // pid file path: PID of the daemon process
-	logsFile = home + "/.interlude/interlude.log" // logs file path: logs of the daemon process
+	logFile = home + "/.interlude/interlude.log" // logs file path: logs of the daemon process
 )
 
 const threshold = 5 * time.Second
