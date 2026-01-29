@@ -1,0 +1,252 @@
+[
+  {
+    "question": "What is the time complexity of binary search?",
+    "answer": "O(log n)",
+    "explanation": "Each comparison halves the search space."
+  },
+  {
+    "question": "What data structure uses LIFO (Last In, First Out)?",
+    "answer": "Stack",
+    "explanation": "Like a stack of plates - you remove the top one first."
+  },
+  {
+    "question": "What data structure uses FIFO (First In, First Out)?",
+    "answer": "Queue",
+    "explanation": "Like a line at a store - first person in line is served first."
+  },
+  {
+    "question": "What is the time complexity of accessing an array element by index?",
+    "answer": "O(1)",
+    "explanation": "Direct memory address calculation: base + (index × element_size)."
+  },
+  {
+    "question": "What is the time complexity of inserting at the beginning of an array?",
+    "answer": "O(n)",
+    "explanation": "All existing elements must be shifted right by one position."
+  },
+  {
+    "question": "What is a hash table's average time complexity for lookup?",
+    "answer": "O(1)",
+    "explanation": "Hash function directly computes the bucket location."
+  },
+  {
+    "question": "What is a hash table's worst case time complexity for lookup?",
+    "answer": "O(n)",
+    "explanation": "When all keys hash to the same bucket (hash collision)."
+  },
+  {
+    "question": "What is the time complexity of quicksort (average case)?",
+    "answer": "O(n log n)",
+    "explanation": "Divides array in half (log n) and processes all elements (n)."
+  },
+  {
+    "question": "What is the time complexity of quicksort (worst case)?",
+    "answer": "O(n²)",
+    "explanation": "Occurs when pivot is always the smallest or largest element."
+  },
+  {
+    "question": "What is the time complexity of merge sort?",
+    "answer": "O(n log n)",
+    "explanation": "Always divides in half (log n) and merges all elements (n)."
+  },
+  {
+    "question": "What is the space complexity of merge sort?",
+    "answer": "O(n)",
+    "explanation": "Requires additional array to merge sorted halves."
+  },
+  {
+    "question": "What is a linked list's time complexity for insertion at head?",
+    "answer": "O(1)",
+    "explanation": "Just update the head pointer and new node's next pointer."
+  },
+  {
+    "question": "What is a linked list's time complexity for searching?",
+    "answer": "O(n)",
+    "explanation": "Must traverse from head, checking each node sequentially."
+  },
+  {
+    "question": "What is a binary search tree's average lookup time?",
+    "answer": "O(log n)",
+    "explanation": "Each comparison eliminates half the remaining nodes."
+  },
+  {
+    "question": "What is a balanced BST (e.g., AVL, Red-Black)?",
+    "answer": "A BST that maintains O(log n) height",
+    "explanation": "Self-balancing ensures the tree doesn't degrade to a linked list."
+  },
+  {
+    "question": "What is the difference between BFS and DFS?",
+    "answer": "BFS explores level by level; DFS explores as deep as possible first",
+    "explanation": "BFS uses a queue; DFS uses a stack (or recursion)."
+  },
+  {
+    "question": "What data structure does BFS use?",
+    "answer": "Queue",
+    "explanation": "FIFO ensures nodes are visited level by level."
+  },
+  {
+    "question": "What data structure does DFS use?",
+    "answer": "Stack",
+    "explanation": "LIFO (or call stack via recursion) ensures depth-first traversal."
+  },
+  {
+    "question": "What is a heap?",
+    "answer": "A complete binary tree where parent ≥ children (max-heap) or ≤ (min-heap)",
+    "explanation": "Used for priority queues. Insert/extract: O(log n)."
+  },
+  {
+    "question": "What is the time complexity of heapify?",
+    "answer": "O(n)",
+    "explanation": "Building a heap from an array is linear, not O(n log n)."
+  },
+  {
+    "question": "What is dynamic programming?",
+    "answer": "Breaking problems into overlapping subproblems and caching results",
+    "explanation": "Avoids redundant computation. Examples: Fibonacci, knapsack."
+  },
+  {
+    "question": "What is memoization?",
+    "answer": "Caching function results to avoid recomputation",
+    "explanation": "Top-down DP approach using recursion + cache."
+  },
+  {
+    "question": "What is tabulation in DP?",
+    "answer": "Bottom-up approach filling a table iteratively",
+    "explanation": "Solves smaller subproblems first, builds up to final answer."
+  },
+  {
+    "question": "What is the time complexity of bubble sort?",
+    "answer": "O(n²)",
+    "explanation": "Nested loops: compare adjacent elements, swap if needed."
+  },
+  {
+    "question": "What is the time complexity of insertion sort?",
+    "answer": "O(n²) worst, O(n) best",
+    "explanation": "Best case is already sorted array (just one pass)."
+  },
+  {
+    "question": "What is a trie (prefix tree)?",
+    "answer": "A tree for storing strings where each node is a character",
+    "explanation": "Enables O(m) lookup where m is string length. Used for autocomplete."
+  },
+  {
+    "question": "What is the difference between a tree and a graph?",
+    "answer": "A tree is a connected acyclic graph with exactly n-1 edges",
+    "explanation": "Graphs can have cycles and multiple paths between nodes."
+  },
+  {
+    "question": "What is an adjacency list?",
+    "answer": "Graph representation where each node stores a list of neighbors",
+    "explanation": "Space: O(V + E). Good for sparse graphs."
+  },
+  {
+    "question": "What is an adjacency matrix?",
+    "answer": "Graph representation using a 2D array of edge weights",
+    "explanation": "Space: O(V²). Good for dense graphs, O(1) edge lookup."
+  },
+  {
+    "question": "What is Dijkstra's algorithm used for?",
+    "answer": "Finding shortest path in a weighted graph (non-negative weights)",
+    "explanation": "Uses a priority queue. Time: O((V + E) log V)."
+  },
+  {
+    "question": "What algorithm finds shortest path with negative weights?",
+    "answer": "Bellman-Ford",
+    "explanation": "Slower than Dijkstra O(VE), but handles negative edges."
+  },
+  {
+    "question": "What is Big O notation?",
+    "answer": "Describes upper bound of algorithm growth rate",
+    "explanation": "Focuses on dominant term as input approaches infinity."
+  },
+  {
+    "question": "What is Big Omega (Ω)?",
+    "answer": "Describes lower bound (best case) of algorithm",
+    "explanation": "The minimum time an algorithm will take."
+  },
+  {
+    "question": "What is Big Theta (Θ)?",
+    "answer": "Describes tight bound (both upper and lower)",
+    "explanation": "When Big O and Big Omega are the same."
+  },
+  {
+    "question": "What is amortized time complexity?",
+    "answer": "Average time per operation over a sequence of operations",
+    "explanation": "Example: dynamic array append is O(1) amortized despite occasional O(n) resize."
+  },
+  {
+    "question": "What is a collision in a hash table?",
+    "answer": "When two different keys hash to the same bucket",
+    "explanation": "Resolved by chaining (linked list) or open addressing."
+  },
+  {
+    "question": "What is open addressing in hash tables?",
+    "answer": "Finding another empty slot when collision occurs",
+    "explanation": "Methods: linear probing, quadratic probing, double hashing."
+  },
+  {
+    "question": "What is a deadlock?",
+    "answer": "When processes wait for each other indefinitely",
+    "explanation": "Four conditions: mutual exclusion, hold & wait, no preemption, circular wait."
+  },
+  {
+    "question": "What is a mutex?",
+    "answer": "A lock that ensures only one thread accesses a resource",
+    "explanation": "Mutual exclusion. Thread must acquire before access, release after."
+  },
+  {
+    "question": "What is a semaphore?",
+    "answer": "A counter that controls access to shared resources",
+    "explanation": "Can allow N threads (counting semaphore) vs mutex (binary, N=1)."
+  },
+  {
+    "question": "What is a race condition?",
+    "answer": "When program behavior depends on timing of thread execution",
+    "explanation": "Multiple threads access shared data without proper synchronization."
+  },
+  {
+    "question": "What is cache locality?",
+    "answer": "Accessing memory locations close together for cache efficiency",
+    "explanation": "Spatial: nearby addresses. Temporal: recently accessed data."
+  },
+  {
+    "question": "What is the difference between process and thread?",
+    "answer": "Process has own memory space; threads share memory within a process",
+    "explanation": "Threads are lighter, faster to create, but need synchronization."
+  },
+  {
+    "question": "What is TCP vs UDP?",
+    "answer": "TCP is reliable/ordered; UDP is fast/unreliable",
+    "explanation": "TCP: web, email. UDP: video streaming, games."
+  },
+  {
+    "question": "What is a B-tree?",
+    "answer": "Self-balancing tree with multiple keys per node",
+    "explanation": "Optimized for disk I/O. Used in databases and file systems."
+  },
+  {
+    "question": "What is the two-pointer technique?",
+    "answer": "Using two indices to traverse array from different positions",
+    "explanation": "Common for sorted arrays, palindrome checks, sliding window."
+  },
+  {
+    "question": "What is a sliding window?",
+    "answer": "Maintaining a subset of elements as you iterate",
+    "explanation": "Useful for substring/subarray problems. O(n) instead of O(n²)."
+  },
+  {
+    "question": "What is recursion?",
+    "answer": "A function that calls itself with a smaller subproblem",
+    "explanation": "Needs base case to stop. Uses call stack for state."
+  },
+  {
+    "question": "What is tail recursion?",
+    "answer": "Recursion where the recursive call is the last operation",
+    "explanation": "Can be optimized to iteration by compiler (tail call optimization)."
+  },
+  {
+    "question": "What is the call stack?",
+    "answer": "Memory region storing function call frames (local vars, return address)",
+    "explanation": "Stack overflow occurs when too many nested calls."
+  }
+]

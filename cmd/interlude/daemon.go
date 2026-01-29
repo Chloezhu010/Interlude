@@ -1,22 +1,32 @@
 package main
 
 import (
-	"fmt" // print to console
-	"os" // file operations: readfile, userhome
-	"os/signal" // catch os signals eg. ctrl C
-	"strconv" // string-to-int conversion
-	"strings" // string manipulation
-	"syscall" // low-level os signals (sigterm, sigint)
-	"time" // time operations
+	"fmt"           // print to console
+	"os"            // file operations: readfile, userhome
+	"os/signal"     // catch os signals eg. ctrl C
+	"path/filepath" // for safer path construction
+	"strconv"       // string-to-int conversion
+	"strings"       // string manipulation
+	"syscall"       // low-level os signals (sigterm, sigint)
+	"time"          // time operations
 
 	"github.com/Chloezhu010/Interlude/internal/ui" // TUI widget
 )
 
 var (
-	home, _ = os.UserHomeDir()
-	statusFile = home + "/.interlude/status" // status file path: "active" or "idle" written by cc hooks
-	startTimeFile = home + "/.interlude/start_time" // start time file path: Unix timestamp written by cc hooks
+	statusFile    string // status file path: "active" or "idle" written by cc hooks
+	startTimeFile string // start time file path: Unix timestamp written by cc hooks
 )
+
+func init() {
+	home, err := os.UserHomeDir()
+	if err != nil {
+		fmt.Printf("Error: could not find home directory: %v\n", err)
+		os.Exit(1)
+	}
+	statusFile = filepath.Join(home, ".interlude", "status")
+	startTimeFile = filepath.Join(home, ".interlude", "start_time")
+}
 
 const threshold = 3 * time.Second
 
@@ -56,7 +66,7 @@ func runDaemon() {
 		if active && !notified {
 			sessionStartTime = getStartTime()
 			if time.Since(sessionStartTime) > threshold {
-				fmt.Println("Claude is still working... Stay focused!")
+				fmt.Println("Claude is still working...")
 				ui.Run(sessionStartTime) // show TUI in same terminal (blocks until user quits)
 				notified = true
 			}

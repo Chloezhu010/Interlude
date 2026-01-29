@@ -14,6 +14,7 @@ func main() {
 		Short: "Interlude is a tool to help you stay focused on your work when using Claude Code",
 	}
 	// add subcommands
+	rootCmd.AddCommand(initCmd())
 	rootCmd.AddCommand(startCmd())
 	// execute root command with error handling
 	err := rootCmd.Execute()
