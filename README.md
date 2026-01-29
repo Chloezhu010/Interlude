@@ -2,6 +2,8 @@
 
 A terminal companion for [Claude Code](https://claude.ai/code) that keeps you in flow while waiting for responses.
 
+![Demo](demo/interlude_demo.gif)
+
 ## Features
 
 While Claude thinks, Interlude offers micro-activities to keep you engaged:
@@ -21,8 +23,17 @@ While Claude thinks, Interlude offers micro-activities to keep you engaged:
 ```bash
 # With Go 1.21+
 go install github.com/Chloezhu010/Interlude/cmd/interlude@latest
+```
 
-# Or build from source
+> **Note:** If you get `command not found`, add Go's bin to your PATH:
+> ```bash
+> echo 'export PATH="$HOME/go/bin:$PATH"' >> ~/.zshrc  # or ~/.bashrc
+> source ~/.zshrc
+> ```
+
+Or build from source:
+
+```bash
 git clone https://github.com/Chloezhu010/Interlude.git
 cd Interlude
 make build    # or: go build -o interlude ./cmd/interlude
