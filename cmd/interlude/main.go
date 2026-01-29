@@ -15,10 +15,6 @@ func main() {
 	}
 	// add subcommands
 	rootCmd.AddCommand(startCmd())
-	rootCmd.AddCommand(runDaemonCmd())
-	rootCmd.AddCommand(stopDaemonCmd())
-	rootCmd.AddCommand(statusDaemonCmd())
-	rootCmd.AddCommand(logsDaemonCmd())
 	// execute root command with error handling
 	err := rootCmd.Execute()
 	if err != nil {

@@ -1,13 +1,13 @@
 NAME=interlude
 BUILD_DIR=./cmd/interlude
 
-.PHONY: build run clean install
+.PHONY: build start clean install
 
 build:
 	go build -o $(NAME) $(BUILD_DIR)
 
-run:
-	go run $(BUILD_DIR)
+start: build
+	./$(NAME) start
 
 clean:
 	rm -f $(NAME)

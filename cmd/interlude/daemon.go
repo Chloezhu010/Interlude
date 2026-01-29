@@ -9,39 +9,31 @@ import (
 	"syscall" // low-level os signals (sigterm, sigint)
 	"time" // time operations
 
-	// "github.com/shirou/gopsutil/v3/process" // process monitoring
+	"github.com/Chloezhu010/Interlude/internal/ui" // TUI widget
 )
 
 var (
 	home, _ = os.UserHomeDir()
 	statusFile = home + "/.interlude/status" // status file path: "active" or "idle" written by cc hooks
 	startTimeFile = home + "/.interlude/start_time" // start time file path: Unix timestamp written by cc hooks
-	pidFile = home + "/.interlude/interlude.pid" // pid file path: PID of the daemon process
-	logFile = home + "/.interlude/interlude.log" // logs file path: logs of the daemon process
 )
 
-const threshold = 5 * time.Second
+const threshold = 3 * time.Second
 
 /* Main daemon loop
- * called by "interlude run-daemon"
+ * called by "interlude start"
+ * Runs in foreground, shows TUI when Claude is active past threshold
 */
 func runDaemon() {
 	fmt.Println("Interlude daemon started. Listening for Claude Code...")
-// graceful shutdown setup
-	// create a channel to receive OS signals
-	sigChan := make(chan os.Signal, 1) // buffer size 1
-	// listen for SIGTERM and SIGINT
-	// SIGTERM: from kill or "interlude stop"
-	// SIGINT: from ctrl C
+// graceful shutdown setup (Ctrl+C)
+	sigChan := make(chan os.Signal, 1)
 	signal.Notify(sigChan, syscall.SIGTERM, syscall.SIGINT)
-	// goroutine run in background to handle signals
 	go func() {
-		<- sigChan // block until signal is received
-		fmt.Println("Interlude shutting down...")
-		// cleanup
-		os.Remove(pidFile)
+		<- sigChan
+		fmt.Println("\nInterlude shutting down...")
 		os.Exit(0)
-	}() // call it immediately
+	}()
 
 
 // main detection loop
@@ -64,7 +56,8 @@ func runDaemon() {
 		if active && !notified {
 			sessionStartTime = getStartTime()
 			if time.Since(sessionStartTime) > threshold {
-				fmt.Println("Still working... Stay focused!")
+				fmt.Println("Claude is still working... Stay focused!")
+				ui.Run(sessionStartTime) // show TUI in same terminal (blocks until user quits)
 				notified = true
 			}
 		}
@@ -105,3 +98,4 @@ func getStartTime() time.Time {
 	}
 	return time.Unix(timestamp, 0)
 }
+
